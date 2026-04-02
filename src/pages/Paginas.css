@@ -1,0 +1,13 @@
+.cont-home{
+    background-color: blue;
+    flex: 1;
+}
+
+.cont-produtos{
+    background-color: maroon;
+    flex: 1;
+}
+.cont-contato{
+    background-color: blueviolet;
+    flex: 1;
+}

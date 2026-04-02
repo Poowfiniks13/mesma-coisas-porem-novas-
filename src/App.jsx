@@ -1,44 +1,27 @@
 import { useState } from 'react'
 
 import './App.css'
-import Hohoho from './componentes/Hohoho';
-import Reprovado from './componentes/Reprovado';
-import Bomba from './componentes/Bomba';
-import Bondinho from './componentes/Bondinho';
-import Pum from './componentes/Pum';
-import Combustivel from './componentes/Combustivel';
-import Lesmas from './componentes/Lesmas';
-import Cinema from './componentes/Cinema';
-import CaixaFrutas from './componentes/Caixafrutas';
-import Martins from './componentes/Martins';
-import GrandeAvisador from './componentes/Grandeavisador';
-import ConversorTemperatura from './componentes/ConversorTemperatura';
-
+import Home from './pages/home';
+import Contato from './pages/Contato';
+import Produtos from './pages/Produtos';
 
 function App(){
-  
-  const [inputNome, setinputName] = useState ('')
-  function cadastrar() { 
-  console.log ("cadastrando: " + inputNome);
-  }
+  const [tela, setTela] = useState (<Home />)
+
   return (
-    <>
-
-      <h1>inputs controlados</h1>
-      Nome <input type="text"
-      Value={inputNome}
-      onChange={(e) => setinputName (e.target.value)} />
-
-<br />
-      <button onClick={cadastrar}>cadastrar</button>
-
-    
-    <ConversorTemperatura/>
-
-    </>
-    
+    <div className="cont-app">
+      <header className="cont-header">
+        <nav>
+          <button className={'botoes-nav'} onClick={() => setTela(<Home/>)}>Home</button>
+          <button className={'botoes-nav'} onClick={() => setTela(<Produtos/>)}>Produtos</button>
+          <button className={'botoes-nav'} onClick={() => setTela(<Contato/>)}>Contatos</button>
+        </nav>
+      </header>
+      <main className="cont-main">
+        {tela} 
+      </main>
+    </div>
   )
 }
 
 export default App
-
