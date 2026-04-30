@@ -1,25 +1,26 @@
 import { useState } from 'react'
+import './componentes/Cardproduto.css'
+import Cardprodutos from './componentes/Cardprodutos'
 
-import './App.css'
-import Home from './pages/home';
-import Contato from './pages/Contato';
-import Produtos from './pages/Produtos';
-
-function App(){
-  const [tela, setTela] = useState (<Home />)
+function App () {
+  const [produtos, setProdutos] = useState ([
+    { id: 0, nome: 'kichute', preco: 333, imagem: '🏴‍☠️' },
+    { id: 1, nome: 'monareta', preco: 155, imagem: '🏴‍☠️' },
+    { id: 2, nome: 'tamagochi', preco: 22, imagem: '🏴‍☠️' }
+  ])
 
   return (
-    <div className="cont-app">
-      <header className="cont-header">
-        <nav>
-          <button className={'botoes-nav'} onClick={() => setTela(<Home/>)}>Home</button>
-          <button className={'botoes-nav'} onClick={() => setTela(<Produtos/>)}>Produtos</button>
-          <button className={'botoes-nav'} onClick={() => setTela(<Contato/>)}>Contatos</button>
-        </nav>
-      </header>
-      <main className="cont-main">
-        {tela} 
-      </main>
+    <div>
+      <h1>Cards de coisas</h1>
+      <div className="listacards"> 
+      
+      {
+        produtos.map((produto) => (
+          <Cardprodutos p={produto} key={produto.id}/>
+        ))
+        
+      }
+ </div>
     </div>
   )
 }
